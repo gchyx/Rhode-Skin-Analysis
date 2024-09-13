@@ -1,7 +1,6 @@
 # Social Media Data Analysis Repository
 
 This repository contains a set of files and scripts for analyzing social media data, focusing on data cleaning, exploratory data analysis (EDA), and advanced text analytics. Below is an overview of the contents and their purpose.
-Repository Structure
 
 ## Data Cleaning and EDA
 **A02 IG:** This file contains code for data cleaning and exploratory data analysis (EDA) specific to Instagram data. It includes steps for preprocessing the data, handling missing values, and performing initial analyses to understand the dataset.
