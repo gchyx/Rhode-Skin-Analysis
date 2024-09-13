@@ -17,7 +17,7 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 # reading the data
-comments = pd.read_csv('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/data/senti_tt.csv')
+comments = pd.read_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/data/senti_tt.csv')
 
 # DATA PREPROCESSING
 # remove some columns
@@ -39,7 +39,7 @@ comments['text'] = comments['text'].apply(preprocess)
 # CREATE DICTIONARY
 dictionary = gensim.corpora.Dictionary(comments['text'])
 corpus = [dictionary.doc2bow(text) for text in comments['text']]
-dictionary.save('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/tiktok/gensim/dictionary_comment.gensim')
+dictionary.save('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/tiktok/gensim/dictionary_comment.gensim')
 
 '''
 # FINDING OPTIMAL NUMBER OF TOPICS
@@ -117,19 +117,19 @@ for topic in topics:
     topic_list.append(topic_data)
 
 topics_df = pd.DataFrame(topic_list)
-topics_df.to_csv('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/tiktok/data/topics_comment.csv', index=False)
-lda_model.save('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/tiktok/gensim/lda_model_comment.gensim')
+topics_df.to_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/tiktok/data/topics_comment.csv', index=False)
+lda_model.save('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/tiktok/gensim/lda_model_comment.gensim')
 
 # VISUALIZE
 lda_display = pyLDAvis.gensim.prepare(lda_model, corpus, dictionary)
-pyLDAvis.save_html(lda_display, '/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/tiktok/figures/lda_visualization_comments.html')
+pyLDAvis.save_html(lda_display, '/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/tiktok/figures/lda_visualization_comments.html')
 
 # PUTTING THE TOPIC ACCORDING TO THE CAPTIONS IN THE DATASET
-lda_model = LdaModel.load('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/tiktok/gensim/lda_model_comment.gensim')
-dictionary = Dictionary.load('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/tiktok/gensim/dictionary_comment.gensim')
+lda_model = LdaModel.load('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/tiktok/gensim/lda_model_comment.gensim')
+dictionary = Dictionary.load('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/tiktok/gensim/dictionary_comment.gensim')
 
 # Load your new dataset
-comment_tm = pd.read_csv('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/data/senti_tt.csv')
+comment_tm = pd.read_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/data/senti_tt.csv')
 # remove some columns
 comment_tm = comment_tm.loc[:, ~comment_tm.columns.str.contains('^Unnamed')]
 print(comment_tm.head())
@@ -170,6 +170,6 @@ def get_topic_name(topic_id):
 
 comment_tm['topic_name'] = comment_tm['topic_id'].apply(get_topic_name)
 
-comment_tm.to_csv('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/tiktok/data/ttcomment_topic.csv', index=False)
+comment_tm.to_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/tiktok/data/ttcomment_topic.csv', index=False)
 print(comment_tm.head())
 

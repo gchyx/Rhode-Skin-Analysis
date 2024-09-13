@@ -19,7 +19,7 @@ else:
 #read data
 pd.set_option('display.max_columns', None)
 
-tt_post = pd.read_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/Data_Extraction/rhodetiktokpost.csv')
+tt_post = pd.read_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/Data_Extraction/rhodetiktokpost.csv')
 
 # keeping required columns only
 required_columns = ['collectCount', 'commentCount', 'createTimeISO', 'diggCount', 'mentions/0', 
@@ -93,4 +93,4 @@ tt_post['text'].replace('nan', pd.NA, inplace=True)
 tt_post['text'].replace(np.nan, pd.NA, inplace=True)
 tt_post.dropna(subset=['text'], inplace=True)
 
-tt_post.to_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/Cleaning/Cleaned Datasets/rhode_tiktokpost_cleaned.csv')
+tt_post.to_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/Cleaning/Cleaned Datasets/rhode_tiktokpost_cleaned.csv')

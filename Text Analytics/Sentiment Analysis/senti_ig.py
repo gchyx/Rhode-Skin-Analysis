@@ -6,7 +6,7 @@ from wordcloud import WordCloud
 pd.set_option('display.max_columns', None)
 
 # reading the data
-igcomments = pd.read_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_IG/EDA/eda_data/comments_ig.csv')
+igcomments = pd.read_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_IG/EDA/eda_data/comments_ig.csv')
 print(igcomments)
 
 # setting up the data
@@ -54,7 +54,7 @@ plt.tight_layout()
 plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 
-plt.savefig('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/senti_figures/instagram/igcomments_lineplot.png', format='png', bbox_inches='tight', dpi=1200)
+plt.savefig('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/senti_figures/instagram/igcomments_lineplot.png', format='png', bbox_inches='tight', dpi=1200)
 
 # SENTIMENT VS LIKES
 likes_by_sentiment = igcomments.groupby('Sentiment_category')['likesCount'].sum().reindex(
@@ -70,7 +70,7 @@ plt.xticks(rotation=0)
 plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 
-plt.savefig('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/senti_figures/instagram/igcomments_sentilikesplot.png', format='png', bbox_inches='tight', dpi=1200)
+plt.savefig('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/senti_figures/instagram/igcomments_sentilikesplot.png', format='png', bbox_inches='tight', dpi=1200)
 
 
 # SENTIMENT CATEGORIZATION PROPORTION
@@ -90,7 +90,7 @@ plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 plt.tight_layout()
 
-plt.savefig('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/senti_figures/instagram/igcomments_senticomments.png', format='png', bbox_inches='tight', dpi=1200)
+plt.savefig('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/senti_figures/instagram/igcomments_senticomments.png', format='png', bbox_inches='tight', dpi=1200)
 
 # WORD CLOUD
 def custom_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
@@ -112,10 +112,10 @@ for sentiment in sentiments:
     plt.axis('off')
     plt.title(f'Word Cloud for {sentiment}', pad=20)
     
-    filename = f"/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/senti_figures/instagram/wordcloud/{sentiment.replace(' ', '_')}_wordcloud.png"
+    filename = f"/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/senti_figures/instagram/wordcloud/{sentiment.replace(' ', '_')}_wordcloud.png"
     plt.savefig(filename, format='png', dpi=1200)
     plt.close()
 
 # saving to csv
-igcomments.to_csv('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/data/senti_ig.csv')
+igcomments.to_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/data/senti_ig.csv')
 

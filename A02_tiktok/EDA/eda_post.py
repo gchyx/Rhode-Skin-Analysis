@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 pd.set_option('display.max_columns', None)
 
-post = pd.read_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/Cleaning/Cleaned Datasets/rhode_tiktokpost_cleaned.csv')
+post = pd.read_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/Cleaning/Cleaned Datasets/rhode_tiktokpost_cleaned.csv')
 
 
 # MINOR DATA CLEANING ------------------------------------------
@@ -79,8 +79,8 @@ plt.tight_layout()
 plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 
-plt.savefig('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/EDA/Figures/posts/video_overtime.png', format='png', bbox_inches='tight', dpi=1200)
+plt.savefig('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/EDA/Figures/posts/video_overtime.png', format='png', bbox_inches='tight', dpi=1200)
 
 # SAVING THE DATASET ------------------------------------------
 post = post.drop(columns=['mentions', 'Unnamed: 0'])
-post.to_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/EDA/eda_data/post_tt.csv')
+post.to_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/EDA/eda_data/post_tt.csv')

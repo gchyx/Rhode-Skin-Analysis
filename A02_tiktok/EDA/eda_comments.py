@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 pd.set_option('display.max_columns', None)
 
 # reading the data
-comments = pd.read_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/Cleaning/Cleaned Datasets/rhode_tiktokcomments_cleaned.csv')
+comments = pd.read_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/Cleaning/Cleaned Datasets/rhode_tiktokcomments_cleaned.csv')
 print(comments)
 
 # setting up the data
@@ -49,7 +49,7 @@ plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 plt.tight_layout()
 
-plt.savefig('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/EDA/Figures/comments/comments_topusers.png', format='png', bbox_inches='tight', dpi=1200)
+plt.savefig('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/EDA/Figures/comments/comments_topusers.png', format='png', bbox_inches='tight', dpi=1200)
 
 
 # Word Cloud ------------------------------------------
@@ -77,6 +77,6 @@ plt.figure(figsize=(10, 5))
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 
-plt.savefig('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/EDA/Figures/comments/comments_wordcloud.png', format='png', bbox_inches='tight', dpi=1200) 
+plt.savefig('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/EDA/Figures/comments/comments_wordcloud.png', format='png', bbox_inches='tight', dpi=1200) 
 
-comments.to_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/EDA/eda_data/comments_tt.csv')
+comments.to_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/EDA/eda_data/comments_tt.csv')

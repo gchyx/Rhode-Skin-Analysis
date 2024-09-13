@@ -17,7 +17,7 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 # reading the data
-post = pd.read_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_IG/EDA/eda_data/post_ig.csv')
+post = pd.read_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_IG/EDA/eda_data/post_ig.csv')
 
 print(post)
 
@@ -36,7 +36,7 @@ post['caption'] = post['caption'].apply(preprocess)
 # CREATE DICTIONARY
 dictionary = gensim.corpora.Dictionary(post['caption'])
 corpus = [dictionary.doc2bow(text) for text in post['caption']]
-dictionary.save('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/instagram/gensim/dictionary_post.gensim')
+dictionary.save('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/instagram/gensim/dictionary_post.gensim')
 
 '''
 # FINDING OPTIMAL NUMBER OF TOPICS
@@ -114,20 +114,20 @@ for topic in topics:
     topic_list.append(topic_data)
 
 topics_df = pd.DataFrame(topic_list)
-topics_df.to_csv('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/instagram/data/topics_post.csv', index=False)
-lda_model.save('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/instagram/gensim/lda_model_post.gensim')
+topics_df.to_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/instagram/data/topics_post.csv', index=False)
+lda_model.save('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/instagram/gensim/lda_model_post.gensim')
 
 # VISUALIZE
 lda_display = pyLDAvis.gensim.prepare(lda_model, corpus, dictionary)
-pyLDAvis.save_html(lda_display, '/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/instagram/figures/lda_visualization.html')
+pyLDAvis.save_html(lda_display, '/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/instagram/figures/lda_visualization.html')
 
 
 # PUTTING THE TOPIC ACCORDING TO THE CAPTIONS IN THE DATASET
-lda_model = LdaModel.load('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/instagram/gensim/lda_model_post.gensim')
-dictionary = Dictionary.load('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/instagram/gensim/dictionary_post.gensim')
+lda_model = LdaModel.load('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/instagram/gensim/lda_model_post.gensim')
+dictionary = Dictionary.load('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/instagram/gensim/dictionary_post.gensim')
 
 # Load your new dataset
-post_tm = pd.read_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_IG/EDA/eda_data/post_ig.csv')
+post_tm = pd.read_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_IG/EDA/eda_data/post_ig.csv')
 
 
 # convert new captions (already preprocessed) to BOW format
@@ -166,5 +166,5 @@ def get_topic_name(topic_id):
 
 post_tm['topic_name'] = post_tm['topic_id'].apply(get_topic_name)
 
-post_tm.to_csv('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Topic Modeling/instagram/data/igpost_topic.csv', index=False)
+post_tm.to_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Topic Modeling/instagram/data/igpost_topic.csv', index=False)
 print(post_tm.head())

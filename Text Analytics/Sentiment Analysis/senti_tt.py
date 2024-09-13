@@ -5,7 +5,7 @@ from wordcloud import WordCloud
 pd.set_option('display.max_columns', None)
 
 # reading the data
-comments = pd.read_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/EDA/eda_data/comments_tt.csv')
+comments = pd.read_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/EDA/eda_data/comments_tt.csv')
 print(comments)
 
 # setting up the data
@@ -53,7 +53,7 @@ plt.tight_layout()
 plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 
-plt.savefig('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/senti_figures/tiktok/comments_lineplot.png', format='png', bbox_inches='tight', dpi=1200)
+plt.savefig('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/senti_figures/tiktok/comments_lineplot.png', format='png', bbox_inches='tight', dpi=1200)
 
 # SENTIMENT VS LIKES
 likes_by_sentiment = comments.groupby('Sentiment_category')['Likes'].sum().reindex(
@@ -69,7 +69,7 @@ plt.xticks(rotation=0)
 plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 
-plt.savefig('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/senti_figures/tiktok/sentilikesplot.png', format='png', bbox_inches='tight', dpi=1200)
+plt.savefig('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/senti_figures/tiktok/sentilikesplot.png', format='png', bbox_inches='tight', dpi=1200)
 
 
 # SENTIMENT CATEGORIZATION PROPORTION
@@ -89,7 +89,7 @@ plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 plt.tight_layout()
 
-plt.savefig('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/senti_figures/tiktok/senticomments.png', format='png', bbox_inches='tight', dpi=1200)
+plt.savefig('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/senti_figures/tiktok/senticomments.png', format='png', bbox_inches='tight', dpi=1200)
 
 # WORD CLOUD
 def custom_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
@@ -111,9 +111,9 @@ for sentiment in sentiments:
     plt.axis('off')
     plt.title(f'Word Cloud for {sentiment}', pad=20)
     
-    filename = f"/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/senti_figures/tiktok/wordcloud/{sentiment.replace(' ', '_')}_wordcloud.png"
+    filename = f"/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/senti_figures/tiktok/wordcloud/{sentiment.replace(' ', '_')}_wordcloud.png"
     plt.savefig(filename, format='png', dpi=1200)
     plt.close()
 
 # saving to csv
-comments.to_csv('/Users/gladys/Documents/GitHub/SMA_A02/Text Analytics/Sentiment Analysis/data/senti_tt.csv')
+comments.to_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/Text Analytics/Sentiment Analysis/data/senti_tt.csv')

@@ -22,7 +22,7 @@ nltk.download()
 pd.set_option('display.max_columns', None)
 
 # reading data
-rhode_tiktok = pd.read_csv("/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/Data_Extraction/rhodetiktokcomments.csv")
+rhode_tiktok = pd.read_csv("/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/Data_Extraction/rhodetiktokcomments.csv")
 
 
 # delete columns
@@ -208,4 +208,4 @@ print(rhode_tiktok)
 
 rhode_tiktok.dropna(subset=['text'], inplace=True)
 
-rhode_tiktok.to_csv('/Users/gladys/Documents/GitHub/SMA_A02/A02_tiktok/Cleaning/Cleaned Datasets/rhode_tiktokcomments_cleaned.csv')
+rhode_tiktok.to_csv('/Users/gladys/Documents/GitHub/Rhode-Skin-Analysis/A02_tiktok/Cleaning/Cleaned Datasets/rhode_tiktokcomments_cleaned.csv')
